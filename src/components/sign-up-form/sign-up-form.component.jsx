@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import "./sign-up-form.styles.scss";
-import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -16,8 +15,6 @@ const defaultFormFields = {
 export default function SignUpForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields) ;
@@ -39,7 +36,6 @@ export default function SignUpForm() {
       if (user) {
         await createUserDocumentFromAuth(user, { displayName });
       }
-      
       resetFormFields();
     } catch (e){
       if(e.code === 'auth/email-already-in-use') {
