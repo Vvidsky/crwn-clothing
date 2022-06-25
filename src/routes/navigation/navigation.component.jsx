@@ -18,7 +18,7 @@ export default function Navigation() {
   return (
     <Fragment>
       <NavigationContainer>
-        <LogoContainer to="/home">
+        <LogoContainer to="/">
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
