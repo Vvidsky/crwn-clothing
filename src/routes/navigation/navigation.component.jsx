@@ -12,12 +12,12 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 export default function Navigation() {
   const currentUser = useSelector(selectCurrentUser);
   // const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
-  // console.log(isCartOpen);
+  const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <Fragment>
       <NavigationContainer>
