@@ -9,13 +9,13 @@ import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 import { setCategories } from '../../store/categories/category.action'
 import { useDispatch } from 'react-redux';
 
-import { fetchCategoriesStartAsync } from "../../store/categories/category.action";
+import { fetchCategoriesStart } from "../../store/categories/category.action";
 
 export default function Shop() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(fetchCategoriesStartAsync());
+      dispatch(fetchCategoriesStart());
   }, []);
   return (
     <Routes>
