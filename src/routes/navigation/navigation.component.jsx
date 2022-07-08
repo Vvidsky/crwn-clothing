@@ -1,9 +1,8 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import { CartContext } from "../../contexts/cart.context";
 import {
   NavigationContainer,
   LogoContainer,
