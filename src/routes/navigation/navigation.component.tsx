@@ -8,8 +8,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
-} from "./navigation.styles.jsx";
-import "./navigation.styles.scss";
+} from "./navigation.styles";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";

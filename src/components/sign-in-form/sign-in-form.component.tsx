@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 
 import "./sign-in-form.styles.scss";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
+// import {
+//   signInWithGooglePopup,
+//   signInAuthUserWithEmailAndPassword,
+// } from "../../utils/firebase/firebase.utils";
 
 import { emailSignInStart, googleSignInStart } from "../../store/user/user.action";
 
@@ -32,17 +32,17 @@ export default function SignInForm() {
     setFormFields(defaultFormFields);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
-    } catch (err) {
+    } catch (err: any) {
       switch (err.code) {
         case "auth/wrong-password":
           alert("incorrect password for email");
@@ -57,10 +57,10 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="sign-up-container">
+    <div className="sign-in-container">
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e)=>handleSubmit}>
         <FormInput
           label="Email"
           type="email"
