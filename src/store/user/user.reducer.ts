@@ -1,11 +1,5 @@
 import { UserData } from "../../utils/firebase/firebase.utils";
-import { USER_ACTION_TYPES } from "./user.types";
 import {
-  SignInSuccess,
-  SignOutSuccess,
-  SignInFailed,
-  SignOutFailed,
-  SignUpFailed,
   signInSuccess,
   signOutSuccess,
   signInFailed,
@@ -50,3 +44,4 @@ export const userReducer = (state = INITIAL_STATE, action: AnyAction) => {
   //     return state
   // }
 };
+

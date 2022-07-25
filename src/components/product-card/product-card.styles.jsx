@@ -41,6 +41,11 @@ export const ProductCardContainer = styled.div`
       opacity: 0.85;
       display: flex;
     }
+
+    @media screen and (max-width: 768px) {\
+      width: 40vw;
+      display: flex;
+    }
   }
 
   ${InvertedButton} {

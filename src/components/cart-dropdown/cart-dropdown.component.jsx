@@ -5,7 +5,7 @@ import "./cart-dropdown.styles.scss";
 
 // import { CartContext } from "../../contexts/cart.context";
 
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { CartDropdownContainer, CartItems, EmptyMessage } from "./cart-dropdown.styles";
@@ -14,20 +14,21 @@ const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
-  const goToCheckoutHandler = () => {
+  const goToCheckoutHandler = useCallback(() => {
     navigate('/checkout');
-  }
+  }, []);
 
   return (
     <CartDropdownContainer>
       <CartItems>
-        {cartItems.length ? ( cartItems.map((item) => (
-          <CartItem cartItem={item} key={item.id}/>
+        {cartItems.length ? (cartItems.map((item) => (
+          <CartItem cartItem={item} key={item.id} />
         ))) : (
           <EmptyMessage>Your cat is empty</EmptyMessage>
         )}
       </CartItems>
       <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+      <Button onClick={goToCheckoutHandler}>Update</Button>
     </CartDropdownContainer>
   );
 };
